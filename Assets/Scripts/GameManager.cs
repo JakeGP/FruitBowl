@@ -5,10 +5,13 @@ using FruitBowl;
 
 public class GameManager : MonoBehaviour
 {
-    // Gameplay managers
+    // Grid element
     public GameObject grid;
+
+    // Gameplay managers
     private GridManager gridManager;
     private InputControl inputControl;
+    private ScoreManager scoreManager;
 
     // Settings
     public GameSettings gameSettings;
@@ -23,6 +26,9 @@ public class GameManager : MonoBehaviour
         // Bind touch input
         inputControl = GetComponent<InputControl>();
         inputControl.swipeEvent.AddListener(MoveGrid);
+
+        // Bind score manager
+        scoreManager = GetComponent<ScoreManager>();
     }
 
     void Start()

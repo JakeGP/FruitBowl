@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using FruitBowl;
 
 public class GameManager : MonoBehaviour
 {
     // Grid element
-    public GameObject grid;
+    private GameObject grid;
 
     // Gameplay managers
     private GridManager gridManager;
@@ -18,9 +19,13 @@ public class GameManager : MonoBehaviour
     public bool debug = false;
     private bool inputEnabled = true;
 
-    void Awake()
+    public IEnumerator BeginGame()
     {
+        // Create the grid and place the start cells
+        yield return new WaitForEndOfFrame();
+
         // Bind grid manager
+        grid = GameObject.FindGameObjectWithTag("Grid");
         gridManager = grid.GetComponent<GridManager>();
 
         // Bind touch input
@@ -29,25 +34,23 @@ public class GameManager : MonoBehaviour
 
         // Bind score manager
         scoreManager = GetComponent<ScoreManager>();
+        scoreManager.InitialiseScore();
+
+        // Create game
+        StartCoroutine(InitialiseGame());
     }
 
-    void Start()
+    public void ExitGame()
     {
-        InitialiseGame();
-    }
-
-    public void InitialiseGame()
-    {
-        // Create the grid and place the start cells
-        gridManager.DrawGrid();
-        gridManager.EnableRandomCells(gameSettings.startCells, false);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ResetGame()
     {
         // Completely clear the grid
         gridManager.ClearGrid();
-        InitialiseGame();
+        scoreManager.ResetTime();
+        StartCoroutine(InitialiseGame());
     }
 
     public void MoveGrid(Direction direction)
@@ -62,11 +65,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator CoEnableNewCells()
+    IEnumerator InitialiseGame()
+    {
+        yield return new WaitForEndOfFrame(); 
+        gridManager.DrawGrid();
+        gridManager.EnableRandomCells(gameSettings.startCells, false);
+        scoreManager.UpdateScore(gridManager);
+    }
+
+    IEnumerator CoEnableNewCells()
     {
         // Spawn new cells and re-enable input
         yield return new WaitForSeconds(0.2f);
         gridManager.EnableRandomCells(gameSettings.cellsAddedPerMove, true);
+        scoreManager.UpdateScore(gridManager);
         inputEnabled = true;
     }
 }

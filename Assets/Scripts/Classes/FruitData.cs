@@ -20,8 +20,16 @@ namespace FruitBowl
     }
 
     [System.Serializable]
+    public struct FruitTarget
+    {
+        public FruitType type;
+        public int quantity;
+    }
+
+    [System.Serializable]
     public struct GameFruitData
     {
+        public List<FruitTarget> targetFruits;
         public List<FruitType> allowedFruits;
         public FruitSize maxFruitSize;
     }

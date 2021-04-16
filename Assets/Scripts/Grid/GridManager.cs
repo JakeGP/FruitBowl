@@ -27,7 +27,7 @@ public class GridManager : MonoBehaviour
     void Awake()
     {
         // Store game manager reference
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         fruitManager = fruitLayer.GetComponent<FruitManager>();
     }
 
@@ -190,5 +190,11 @@ public class GridManager : MonoBehaviour
     {
         // Gets all active/inactive cells
         return cellElements.Where(cell => cell.GetComponent<GridCell>().cellActive == active).ToList();
+    }
+
+    public List<GridCell> GetAllCellComponents()
+    {
+        // Gets all GridCell components
+        return cellElements.Select(cell => cell.GetComponent<GridCell>()).ToList();
     }
 }

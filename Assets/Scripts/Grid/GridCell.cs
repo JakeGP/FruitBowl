@@ -24,7 +24,7 @@ public class GridCell : MonoBehaviour
     void Awake() 
     {
         // Store game manager reference
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         value = transform.Find("Label").GetComponentInChildren<Text>();
         position = transform.Find("Position").GetComponentInChildren<Text>();
     }

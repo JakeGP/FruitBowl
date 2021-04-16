@@ -7,6 +7,14 @@ TagManager:
   - GamePanel
   - Position
   - Value
+  - Input
+  - Window
+  - PrimaryWindow
+  - Progress
+  - Grid
+  - GameManager
+  - Time
+  - Score
   layers:
   - Default
   - TransparentFX

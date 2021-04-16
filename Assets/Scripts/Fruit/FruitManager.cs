@@ -24,7 +24,7 @@ public class FruitManager : MonoBehaviour
     void Awake()
     {
         // Store game manager reference
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         fruitSettings = gameManager.gameSettings.fruitSettings;
     }
 

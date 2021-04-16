@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8092908126716231147, guid: f0613a6c3e5b807418daf844ed5221c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02349e7d496e4394a803dfbd85009daf, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.08627451}
-  m_EffectDistance: {x: 0, y: -10}
+  m_EffectDistance: {x: 0, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!1 &8711564565846471599
 GameObject:
@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 876797156429784672}
   - component: {fileID: 2031050495896240203}
   - component: {fileID: 5366180491980398031}
+  - component: {fileID: 7754922633088278486}
   m_Layer: 5
   m_Name: Apple
   m_TagString: Untagged
@@ -118,7 +119,7 @@ RectTransform:
   m_GameObject: {fileID: 8711564565846471599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.38542986, y: 0.38542986, z: 0.38542986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8526772989154254253}
   m_Father: {fileID: 0}
@@ -127,7 +128,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 547, y: 1066}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2031050495896240203
 CanvasRenderer:
@@ -152,8 +153,22 @@ MonoBehaviour:
   curCellReference: {fileID: 0}
   fruitType: 3
   fruitSize: 2
-  quarter: {fileID: -8092908126716231147, guid: f0613a6c3e5b807418daf844ed5221c3, type: 3}
-  half: {fileID: 2816044424186724801, guid: f0613a6c3e5b807418daf844ed5221c3, type: 3}
-  slice: {fileID: -8516799833205016227, guid: f0613a6c3e5b807418daf844ed5221c3, type: 3}
-  whole: {fileID: 530357227305116010, guid: f0613a6c3e5b807418daf844ed5221c3, type: 3}
-  bunch: {fileID: -6049087471926069144, guid: f0613a6c3e5b807418daf844ed5221c3, type: 3}
+  quarter: {fileID: 21300000, guid: 39ef77bea172c454d990578f3c7c2c6e, type: 3}
+  half: {fileID: 21300000, guid: 52ac2ce04e2763c4193c78d4f34f426f, type: 3}
+  slice: {fileID: 21300000, guid: 3246abf9d4a9328478da0c528494fbc1, type: 3}
+  whole: {fileID: 21300000, guid: 136686c3ffd5934469e325851f35a8c6, type: 3}
+  bunch: {fileID: 21300000, guid: af0177b1310c3f346a8022efab3126e8, type: 3}
+--- !u!114 &7754922633088278486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711564565846471599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 1
